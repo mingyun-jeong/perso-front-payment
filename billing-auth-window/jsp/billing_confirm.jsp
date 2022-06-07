@@ -12,6 +12,7 @@
 <%@ page import="java.io.InputStreamReader" %>
 <%@ page import="java.io.Reader" %>
 <%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page import="java.net.URLEncoder" %>
 
 <%
  // 결제 승인 API 호출하기 
@@ -24,6 +25,8 @@
   Encoder encoder = Base64.getEncoder(); 
   byte[] encodedBytes = encoder.encode(secretKey.getBytes("UTF-8"));
   String authorizations = "Basic "+ new String(encodedBytes, 0, encodedBytes.length);
+
+  authkey = URLEncoder.encode(authkey, StandardCharsets.UTF_8);
   
   URL url = new URL("https://api.tosspayments.com/v1/billing/authorizations/" + authkey);
   

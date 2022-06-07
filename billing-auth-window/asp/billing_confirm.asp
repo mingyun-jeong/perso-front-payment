@@ -3,8 +3,8 @@
 
 <!DOCTYPE html>
 
-<!--#include file="json2.asp"--> 
-<!--#include file="base64.asp"--> 
+<!--#include file="json2.asp"-->
+<!--#include file="base64.asp"-->
 
 <%
 	
@@ -16,7 +16,7 @@ authKey	= trim(request("authKey"))
 
 secretKey = "test_ak_ZORzdMaqN3wQd5k6ygr5AkYXQGwy:"
 
-url = "https://api.tosspayments.com/v1/billing/authorizations/" & authKey
+url = "https://api.tosspayments.com/v1/billing/authorizations/" & Server.UrlEncode(authKey)
 
 data = "{""customerKey"" : """ & customerKey & """, ""cardNumber"" : """ & cardNumber & """," &_
     """cardExpirationYear"" : """ & cardExpirationYear & """, ""cardExpirationMonth"" : """ & cardExpirationMonth & """," &_
@@ -44,33 +44,34 @@ data = "{""customerKey"" : """ & customerKey & """, ""cardNumber"" : """ & cardN
 
 
 <html lang="ko">
+
 <head>
     <title>결제 성공</title>
     <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
+
 <body>
-<section>
-    <%
+    <section>
+        <%
         if httpCode=200  then %>
         <h1>빌링키 발급 성공</h1>
         <p>결과 데이터 : <%= req.responseText %></p>
-        <p>billingKey :  <%= myJSON.billingKey%></p>
+        <p>billingKey : <%= myJSON.billingKey%></p>
         <p>cardCompany : <%= myJSON.cardCompany%></p>
-        <p>cardNumber :  <%= myJSON.cardNumber%></p>
-        
-       <%
+        <p>cardNumber : <%= myJSON.cardNumber%></p>
+
+        <%
      else  %>
         <h1>빌링키 발급 실패</h1>
-        <p>에러메시지 :  <%= myJSON.message%></p>
-        <span>에러코드:  <%= myJSON.code%></span>
-       <%
+        <p>에러메시지 : <%= myJSON.message%></p>
+        <span>에러코드: <%= myJSON.code%></span>
+        <%
     end if
     %>
 
-</section>
+    </section>
 </body>
+
 </html>
-
-
