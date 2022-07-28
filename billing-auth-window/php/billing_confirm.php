@@ -6,9 +6,9 @@ $authKey = $_GET['authKey'];
 
 $secretKey = 'test_ak_ZORzdMaqN3wQd5k6ygr5AkYXQGwy'; 
 
-$url = 'https://api.tosspayments.com/v1/billing/authorizations/' . urlencode($authKey);
+$url = 'https://api.tosspayments.com/v1/billing/authorizations/issue';
 
-$data = ['customerKey' => $customerKey];
+$data = ['authKey' => $authKey, 'customerKey' => $customerKey];
 
 $credential = base64_encode($secretKey . ':');
 

@@ -3,19 +3,19 @@
 
 <!DOCTYPE html>
 
-<!--#include file="json2.asp"--> 
-<!--#include file="base64.asp"--> 
+<!--#include file="json2.asp"-->
+<!--#include file="base64.asp"-->
 
 <%
 	
 call initCodecs
 
 customerKey = "test_customer_key"
-cardNumber = "9410618648226011"
-cardExpirationYear = "26"
-cardExpirationMonth = "08"
-cardPassword = "31"
-customerBirthday  = "771102"
+cardNumber = ""
+cardExpirationYear = ""
+cardExpirationMonth = ""
+cardPassword = ""
+customerBirthday  = ""
 customerName = "박토스"
 customerEmail = "customer@email.com"
 
@@ -49,33 +49,34 @@ data = "{""customerKey"" : """ & customerKey & """, ""cardNumber"" : """ & cardN
 
 
 <html lang="ko">
+
 <head>
     <title>결제 성공</title>
     <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 </head>
+
 <body>
-<section>
-    <%
+    <section>
+        <%
         if httpCode=200  then %>
         <h1>결제 성공</h1>
         <p>결과 데이터 : <%= req.responseText %></p>
-        <p>billingKey :  <%= myJSON.billingKey%></p>
+        <p>billingKey : <%= myJSON.billingKey%></p>
         <p>cardCompany : <%= myJSON.cardCompany%></p>
-        <p>cardNumber :  <%= myJSON.cardNumber%></p>
-        
-       <%
+        <p>cardNumber : <%= myJSON.cardNumber%></p>
+
+        <%
      else  %>
         <h1>결제 실패</h1>
-        <p>에러메시지 :  <%= myJSON.message%></p>
-        <span>에러코드:  <%= myJSON.code%></span>
-       <%
+        <p>에러메시지 : <%= myJSON.message%></p>
+        <span>에러코드: <%= myJSON.code%></span>
+        <%
     end if
     %>
 
-</section>
+    </section>
 </body>
+
 </html>
-
-

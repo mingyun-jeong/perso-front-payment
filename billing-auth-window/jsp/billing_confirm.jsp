@@ -28,7 +28,7 @@
 
   authkey = URLEncoder.encode(authkey, StandardCharsets.UTF_8);
   
-  URL url = new URL("https://api.tosspayments.com/v1/billing/authorizations/" + authkey);
+  URL url = new URL("https://api.tosspayments.com/v1/billing/authorizations/issue");
   
   HttpURLConnection connection = (HttpURLConnection) url.openConnection();
   connection.setRequestProperty("Authorization", authorizations);
@@ -36,6 +36,7 @@
   connection.setRequestMethod("POST");
   connection.setDoOutput(true);
   JSONObject obj = new JSONObject();
+  obj.put("authKey", authKey);
   obj.put("customerKey", customerKey);
   
     

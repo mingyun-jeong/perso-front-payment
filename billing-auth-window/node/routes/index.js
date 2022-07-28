@@ -12,21 +12,18 @@ router.get("/", function (req, res) {
 
 router.get("/billing_confirm", function (req, res) {
   got
-    .post(
-      "https://api.tosspayments.com/v1/billing/authorizations/" +
-        encodeURIComponent(req.query.authKey),
-      {
-        headers: {
-          Authorization:
-            "Basic " + Buffer.from(secretKey + ":").toString("base64"),
-          "Content-Type": "application/json",
-        },
-        json: {
-          customerKey: req.query.customerKey,
-        },
-        responseType: "json",
-      }
-    )
+    .post("https://api.tosspayments.com//v1/billing/authorizations/issue", {
+      headers: {
+        Authorization:
+          "Basic " + Buffer.from(secretKey + ":").toString("base64"),
+        "Content-Type": "application/json",
+      },
+      json: {
+        authKey: req.query.authKey,
+        customerKey: req.query.customerKey,
+      },
+      responseType: "json",
+    })
     .then(function (response) {
       console.log(response.body);
 

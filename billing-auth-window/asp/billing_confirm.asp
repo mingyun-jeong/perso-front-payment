@@ -16,12 +16,9 @@ authKey	= trim(request("authKey"))
 
 secretKey = "test_ak_ZORzdMaqN3wQd5k6ygr5AkYXQGwy:"
 
-url = "https://api.tosspayments.com/v1/billing/authorizations/" & Server.UrlEncode(authKey)
+url = "https://api.tosspayments.com/v1/billing/authorizations/issue"
 
-data = "{""customerKey"" : """ & customerKey & """, ""cardNumber"" : """ & cardNumber & """," &_
-    """cardExpirationYear"" : """ & cardExpirationYear & """, ""cardExpirationMonth"" : """ & cardExpirationMonth & """," &_
-    """cardPassword"" : """ & cardPassword & """, ""customerBirthday"" : """ & customerBirthday & """," &_
-    """customerName"" : """ & customerName & """, ""customerEmail"" : """ & customerEmail & """}"
+data = "{""authKey"" : """ & authKey & """, ""customerKey"" : """ & customerKey & """}"
 
 
     authorization = "Basic " & base64Encode(secretKey)

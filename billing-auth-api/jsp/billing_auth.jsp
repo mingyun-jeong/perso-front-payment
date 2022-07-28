@@ -17,7 +17,7 @@
  // 결제 승인 API 호출하기 
  
   String customerKey = "test_customer_key";
-  String cardNumber = "5450898000198151";
+  String cardNumber = "";
   String cardExpirationYear = "";
   String cardExpirationMonth = "";
   String cardPassword = "";
