@@ -34,11 +34,12 @@ def billing_approve(request):
 
   res = requests.post(url+billingKey, data=json.dumps(params), headers=headers)
   resjson = res.json()
+  pretty = json.dumps(resjson, indent=4)
 
   return render(
     request,
     'billing/billing_approve.html',
     {
-      "res" : res,
+      "res" : pretty,
     }
   )

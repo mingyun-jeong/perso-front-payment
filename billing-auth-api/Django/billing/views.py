@@ -33,6 +33,7 @@ def billing_auth(request):
   
   res = requests.post(url, data=json.dumps(params), headers=headers)
   resjson = res.json()
+  pretty = json.dumps(resjson, indent=4)
 
   billingKey = resjson["billingKey"]
   cardCompany = resjson["card"]["company"]
@@ -43,7 +44,7 @@ def billing_auth(request):
     request,
     "billing/billing_auth.html",
     {
-      "res" : res,
+      "res" : pretty,
       "billingKey" : billingKey,
       "cardCompany" : cardCompany,
       "cardNumber" : cardNumber,
