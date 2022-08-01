@@ -36,7 +36,7 @@ def billing_confirm(request):
   
   res = requests.post(url, data=json.dumps(params), headers=headers)
   resjson = res.json()
-  pretty = json.dumps(resjson, indent=4)
+  pretty = json.dumps(resjson, indent=4, ensure_ascii=False)
 
   billingKey = resjson["billingKey"]
   cardCompany = resjson["card"]["company"]
