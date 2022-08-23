@@ -9,7 +9,7 @@ billing-auth-api : customerKey 로 카드 자동결제 빌링키 발급요청 AP
   (https://docs.tosspayments.com/reference#customerkey로-카드-자동-결제-빌링키-발급-요청)
 
 billing-auth-window : 카드 자동 결제창  샘플입니다.  
-  (https://docs.tosspayments.com/guides/windows/card-direct)
+  (https://docs.tosspayments.com/guides/windows/card-billing)
 
 billing-payment-api : 카드 자동 결제 승인 요청 API 샘플입니다.  
   (https://docs.tosspayments.com/reference#카드-자동-결제-승인-요청)
