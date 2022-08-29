@@ -4,8 +4,6 @@
 
 각 레포지토리에서 프로그래밍 언어 별 샘플을 확인할 수 있습니다.
 
-- [`/payment-cancel-api`](https://github.com/tosspayments/payment-samples/tree/main/payment-cancel-api): 결제 취소 API 연동 샘플
-
 - [`/billing-auth-api`](https://github.com/tosspayments/billing-samples/tree/main/billing-auth-api): 빌링키 발급요청 API 연동 샘플
 
 - [`/billing-auth-window`](https://github.com/tosspayments/billing-samples/tree/main/billing-auth-window): 빌링(자동결제) 연동 샘플
