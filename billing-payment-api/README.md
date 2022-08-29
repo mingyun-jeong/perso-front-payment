@@ -1,11 +1,7 @@
-# billing-payment-api
+# 카드 자동 결제 승인 요청 API  연동 샘플
 
+빌링키를 이용해서 실제로 결제를 진행하는 API 연동 샘플입니다. 각 폴더에서 언어별 샘플을 확인할 수 있습니다.
 
+## 연동 문서
 
-카드 자동 결제 승인 요청 API 샘플입니다.
-
-(https://docs.tosspayments.com/reference#카드-자동-결제-승인-요청)
-
-각 프로그래밍 언어 폴더에서 해당 언어의 샘플을 확인할 수 있습니다.  
-
-RESTful API 호출 시에 필요한 정보를 넣어서 호출하면 JSON 응답을 받을 수 있습니다.
+- [카드 자동 결제 승인 요청 API](https://docs.tosspayments.com/reference#카드-자동-결제-승인-요청)
