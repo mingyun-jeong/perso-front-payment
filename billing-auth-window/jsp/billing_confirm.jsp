@@ -20,7 +20,7 @@
   String authkey = request.getParameter("authKey");
   
   
-  String secretKey = "test_ak_ZORzdMaqN3wQd5k6ygr5AkYXQGwy:";
+  String secretKey = "test_sk_jZ61JOxRQVENaNGNeJmrW0X9bAqw:";
   
   Encoder encoder = Base64.getEncoder(); 
   byte[] encodedBytes = encoder.encode(secretKey.getBytes("UTF-8"));

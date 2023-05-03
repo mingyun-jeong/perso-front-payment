@@ -4,7 +4,7 @@ var uuid = require("uuid").v4;
 
 var router = express.Router();
 
-var secretKey = "test_ak_ZORzdMaqN3wQd5k6ygr5AkYXQGwy";
+var secretKey = "test_sk_jZ61JOxRQVENaNGNeJmrW0X9bAqw";
 
 router.get("/", function (req, res) {
   res.render("index");
