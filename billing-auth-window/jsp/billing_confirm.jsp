@@ -17,7 +17,7 @@
 <%
  // 결제 승인 API 호출하기 
   String customerKey = request.getParameter("customerKey");
-  String authkey = request.getParameter("authKey");
+  String authKey = request.getParameter("authKey");
   
   
   String secretKey = "test_sk_jZ61JOxRQVENaNGNeJmrW0X9bAqw:";
@@ -26,7 +26,7 @@
   byte[] encodedBytes = encoder.encode(secretKey.getBytes("UTF-8"));
   String authorizations = "Basic "+ new String(encodedBytes, 0, encodedBytes.length);
 
-  authkey = URLEncoder.encode(authkey, StandardCharsets.UTF_8);
+  authKey = URLEncoder.encode(authKey, StandardCharsets.UTF_8);
   
   URL url = new URL("https://api.tosspayments.com/v1/billing/authorizations/issue");
   
