@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
 
 router.get("/billing_confirm", function (req, res) {
   got
-    .post("https://api.tosspayments.com//v1/billing/authorizations/issue", {
+    .post("https://api.tosspayments.com/v1/billing/authorizations/issue", {
       headers: {
         Authorization:
           "Basic " + Buffer.from(secretKey + ":").toString("base64"),
