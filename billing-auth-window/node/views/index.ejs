@@ -1,65 +1,42 @@
-<!DOCTYPE html>
-<html lang="ko">
-
 <head>
-  <title>구매하기</title>
-  <meta charset="UTF-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link rel="stylesheet" href="./bulma.min.css">
-
-  <script src="https://js.tosspayments.com/v1"></script>
+  <title>결제하기</title>
+  <meta charset="utf-8" />
+  <!-- 토스페이먼츠 결제창 SDK 추가 -->
+  <script src="https://js.tosspayments.com/v1/payment"></script>
 </head>
 
 <body>
+  <button class="button is-link" onclick="billing('카드',jsons.card);">자동결제</button>
+  <script>
+    // ------ 클라이언트 키로 객체 초기화 ------
+    var clientKey = '{CLIENT_KEY}';
+    var tossPayments = TossPayments(clientKey);
 
-  <section class="hero is-link">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          토스페이먼츠 연동 샘플
-        </h1>
+    var amount = 4900;
+    function billing(method, requestJson) {
+      console.log(requestJson);
 
-      </div>
-    </div>
-  </section>
-  <section class="section ">
-    <div class="container">
-      <button class="button is-link" onclick="billing('카드',jsons.card);">빌링(자동결제)</button>
-    </div>
-  </section>
-</body>
-
-<script>
-  let amount = 50000;
-
-  let tossPayments = TossPayments("test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq");
-
-  function billing(method, requestJson) {
-    console.log(requestJson);
-    tossPayments.requestBillingAuth(method, requestJson)
-      .catch(function (error) {
-        if (error.code === "USER_CANCEL") {
-          alert('유저가 취소했습니다.');
-        } else {
-          alert(error.message);
-        }
-      });
-  }
-
-  let billingSuccessUrl = window.location.origin + "/billing_confirm";
-  let failUrl = window.location.origin + "/fail";
-
-
-  let jsons = {
-    "card": {
-      "customerKey": "test_customer_key",
-      "successUrl": billingSuccessUrl,
-      "failUrl": failUrl
+      tossPayments.requestBillingAuth(method, requestJson)
+        .catch(function (error) {
+          if (error.code === "USER_CANCEL") {
+            alert('유저가 취소했습니다.');
+          } else {
+            alert(error.message);
+          }
+        });
     }
 
+    var successUrl = window.location.origin + "/success";
+    var failUrl = window.location.origin + "/fail"; // 실패하면 EJS 파일에서 실패 영역이 나타납니다.
 
-  }
-</script>
-
-</html>
+    var jsons = {
+      "card": {
+        // customerKey에는 가맹점에서 가지고 있는 고객 식별키를 넣어주세요.
+        // 다른 사용자가 이 값을 알게 되면 악의적으로 사용할 수 있어 자동 증가하는 숫자는 안전하지 않습니다. UUID와 같이 충분히 무작위적인 고유 값으로 생성해주세요.
+        "customerKey": "test_customer_key",
+        "successUrl": successUrl,
+        "failUrl": failUrl
+      }
+    }
+  </script>
+</body>
